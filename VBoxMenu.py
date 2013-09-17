@@ -17,9 +17,14 @@ import re
 import subprocess
 import sys
 from subprocess import Popen
-from PyQt4 import QtGui, QtCore
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
+try:
+    from PyQt4 import QtGui, QtCore
+    from PyQt4.QtCore import *
+    from PyQt4.QtGui import *
+except ImportError:
+    from PySide import QtGui, QtCore
+    from PySide.QtCore import *
+    from PySide.QtGui import *
 
 regex = re.compile(r'^"(.+)" {(.+)}') # "VM name" {UUID}
 
